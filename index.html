@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Rhago Consulting · Study in China</title>
+  <title>Rhago Consulting Services · Study in China with Confidence</title>
+  <meta name="description" content="Rhago Consulting Services helps students gain admission to top Chinese universities. Bachelor's, Master's, PhD, and Chinese language programs.">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -12,263 +13,1317 @@
       box-sizing: border-box;
       font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
-    body { background: #f4f7fc; padding: 2rem 1.5rem; }
-    .app-container { max-width: 1440px; margin: 0 auto; }
 
-    .brand { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
-    .logo-placeholder {
-      width: 60px; height: 60px; background: #0b2c4f; border-radius: 16px;
+    :root {
+      --navy: #0b2c4f;
+      --navy-light: #154a73;
+      --blue: #2a6b9c;
+      --sky: #e8f2fc;
+      --gold: #d4a24e;
+      --gold-dark: #b8863a;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --bg: #f8fafc;
+    }
+
+    body {
+      color: var(--text);
+      background: white;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    a { text-decoration: none; color: inherit; }
+
+    /* ============ TOP BAR ============ */
+    .topbar {
+      background: var(--navy);
+      color: rgba(255,255,255,0.85);
+      padding: 0.5rem 2rem;
+      font-size: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .topbar-info { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .topbar-info span i { color: var(--gold); margin-right: 0.4rem; }
+    .topbar-social a { color: rgba(255,255,255,0.7); margin-left: 1rem; transition: 0.2s; }
+    .topbar-social a:hover { color: var(--gold); }
+
+    /* ============ NAVBAR ============ */
+    .navbar {
+      background: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.04);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-brand { display: flex; align-items: center; gap: 0.8rem; }
+    .logo {
+      width: 48px; height: 48px;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      border-radius: 12px;
       display: flex; align-items: center; justify-content: center;
-      color: white; font-weight: 700; font-size: 1.6rem;
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+      color: white; font-weight: 800; font-size: 1.3rem;
+      box-shadow: 0 4px 12px rgba(11,44,79,0.2);
     }
-    .brand h1 { font-size: 1.9rem; font-weight: 600; color: #0b2c4f; letter-spacing: -0.5px; }
-    .brand span { font-weight: 300; color: #4a6a8b; font-size: 1rem; margin-left: 0.5rem; }
+    .brand-text h2 {
+      font-size: 1.15rem; font-weight: 700; color: var(--navy);
+      line-height: 1.1; letter-spacing: -0.3px;
+    }
+    .brand-text small {
+      font-size: 0.7rem; color: var(--text-muted); font-weight: 500;
+      text-transform: uppercase; letter-spacing: 1px;
+    }
 
-    .dashboard-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 1.8rem; }
+    .nav-links { display: flex; gap: 2rem; align-items: center; list-style: none; }
+    .nav-links a {
+      font-size: 0.9rem; font-weight: 500; color: var(--text);
+      transition: color 0.2s; position: relative;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-links a.active { color: var(--blue); }
+    .nav-links a.active::after {
+      content: ''; position: absolute; bottom: -6px; left: 0; right: 0;
+      height: 2px; background: var(--gold); border-radius: 2px;
+    }
 
+    .nav-cta {
+      background: var(--navy); color: white;
+      padding: 0.6rem 1.4rem; border-radius: 40px;
+      font-size: 0.85rem; font-weight: 600; cursor: pointer;
+      border: none; display: flex; align-items: center; gap: 0.5rem;
+      transition: 0.2s; box-shadow: 0 4px 12px rgba(11,44,79,0.15);
+    }
+    .nav-cta:hover { background: var(--navy-light); transform: translateY(-1px); }
+
+    .mobile-toggle {
+      display: none; background: none; border: none;
+      font-size: 1.4rem; color: var(--navy); cursor: pointer;
+    }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative;
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      padding: 3rem 2rem;
+      background-image:
+        linear-gradient(135deg, rgba(11,44,79,0.92) 0%, rgba(11,44,79,0.75) 50%, rgba(42,107,156,0.5) 100%),
+        url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      overflow: hidden;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 100px;
+      background: linear-gradient(to top, white, transparent);
+    }
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(212,162,78,0.2);
+      border: 1px solid rgba(212,162,78,0.4);
+      color: var(--gold);
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 span { color: var(--gold); display: block; }
+    .hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 2rem;
+      max-width: 550px;
+      line-height: 1.7;
+    }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--gold); color: var(--navy);
+      padding: 1rem 2rem; border-radius: 40px;
+      font-weight: 700; font-size: 0.95rem;
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      cursor: pointer; border: none;
+      transition: 0.2s;
+      box-shadow: 0 8px 24px rgba(212,162,78,0.35);
+    }
+    .btn-primary:hover {
+      background: #e0b366; transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(212,162,78,0.45);
+    }
+    .btn-ghost {
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      padding: 1rem 2rem; border-radius: 40px;
+      font-weight: 600; font-size: 0.95rem;
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: 0.2s;
+    }
+    .btn-ghost:hover {
+      background: rgba(255,255,255,0.2);
+      border-color: white;
+    }
+
+    /* Hero stats floating card */
+    .hero-stats {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 24px;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+    .hero-stat {
+      text-align: left;
+      padding: 1rem;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero-stat .num {
+      font-size: 2.2rem; font-weight: 800;
+      color: var(--gold); line-height: 1;
+      margin-bottom: 0.3rem;
+      letter-spacing: -1px;
+    }
+    .hero-stat .label {
+      font-size: 0.8rem; color: rgba(255,255,255,0.8);
+      text-transform: uppercase; letter-spacing: 0.5px;
+      font-weight: 500;
+    }
+
+    /* ============ SECTION HELPERS ============ */
+    .section { padding: 5rem 2rem; }
+    .section-header { text-align: center; max-width: 700px; margin: 0 auto 3.5rem; }
+    .section-tag {
+      display: inline-block;
+      color: var(--gold);
+      font-size: 0.8rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 2px;
+      margin-bottom: 0.8rem;
+    }
+    .section-header h2 {
+      font-size: 2.5rem; font-weight: 800;
+      color: var(--navy); letter-spacing: -1px;
+      line-height: 1.2; margin-bottom: 1rem;
+    }
+    .section-header p {
+      color: var(--text-muted); font-size: 1.05rem;
+    }
+
+    /* ============ SERVICES ============ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .service-card {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold), var(--blue));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s;
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(11,44,79,0.08);
+      border-color: transparent;
+    }
+    .service-icon {
+      width: 60px; height: 60px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, var(--sky), #d4e4f4);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--navy); font-size: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .service-card h3 {
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--navy); margin-bottom: 0.6rem;
+    }
+    .service-card p {
+      font-size: 0.9rem; color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ============ HOW IT WORKS ============ */
+    .how-section { background: var(--bg); }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .step {
+      text-align: center;
+      padding: 1rem;
+      position: relative;
+    }
+    .step-num {
+      width: 70px; height: 70px;
+      border-radius: 50%;
+      background: white;
+      border: 3px solid var(--gold);
+      color: var(--navy);
+      font-size: 1.6rem; font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.2rem;
+      box-shadow: 0 8px 20px rgba(212,162,78,0.2);
+      position: relative;
+      z-index: 2;
+    }
+    .step h3 {
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--navy); margin-bottom: 0.5rem;
+    }
+    .step p { font-size: 0.85rem; color: var(--text-muted); }
+
+    /* ============ UNIVERSITIES ============ */
+    .uni-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .uni-card {
+      border-radius: 24px;
+      overflow: hidden;
+      background: white;
+      box-shadow: 0 8px 24px rgba(11,44,79,0.06);
+      transition: 0.3s;
+      border: 1px solid var(--border);
+    }
+    .uni-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(11,44,79,0.12);
+    }
+    .uni-image {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+    .uni-image::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 50%, rgba(11,44,79,0.7));
+    }
+    .uni-city {
+      position: absolute;
+      bottom: 12px; left: 16px;
+      color: white; font-size: 0.8rem; font-weight: 600;
+      z-index: 2;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .uni-info { padding: 1.5rem; }
+    .uni-info h3 {
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--navy); margin-bottom: 0.5rem;
+    }
+    .uni-info p {
+      font-size: 0.85rem; color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+    .uni-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .uni-tag {
+      font-size: 0.7rem; font-weight: 600;
+      padding: 0.3rem 0.7rem;
+      border-radius: 20px;
+      background: var(--sky); color: var(--blue);
+    }
+
+    /* ============ TESTIMONIALS ============ */
+    .testimonials-section { background: var(--bg); }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .testi-card {
+      background: white;
+      border-radius: 24px;
+      padding: 2rem;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+    .testi-quote {
+      color: var(--gold); font-size: 2rem;
+      font-family: Georgia, serif;
+      line-height: 0.5;
+      margin-bottom: 1rem;
+    }
+    .testi-text {
+      font-size: 0.95rem; color: var(--text);
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+    .testi-author { display: flex; align-items: center; gap: 0.8rem; }
+    .testi-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      display: flex; align-items: center; justify-content: center;
+      color: white; font-weight: 700; font-size: 1rem;
+    }
+    .testi-name { font-weight: 700; color: var(--navy); font-size: 0.9rem; }
+    .testi-role { font-size: 0.75rem; color: var(--text-muted); }
+
+    /* ============ FAQ ============ */
+    .faq-list {
+      max-width: 800px; margin: 0 auto;
+    }
+    .faq-item {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      margin-bottom: 0.8rem;
+      overflow: hidden;
+      transition: 0.2s;
+    }
+    .faq-item.open { box-shadow: 0 8px 24px rgba(11,44,79,0.08); border-color: var(--blue); }
+    .faq-question {
+      padding: 1.2rem 1.5rem;
+      display: flex; justify-content: space-between; align-items: center;
+      cursor: pointer;
+      font-weight: 600; color: var(--navy); font-size: 0.95rem;
+      gap: 1rem;
+    }
+    .faq-question i { color: var(--blue); transition: transform 0.3s; }
+    .faq-item.open .faq-question i { transform: rotate(45deg); }
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+      padding: 0 1.5rem;
+      color: var(--text-muted); font-size: 0.9rem;
+      line-height: 1.7;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding: 0 1.5rem 1.5rem;
+    }
+
+    /* ============ CTA SECTION ============ */
+    .cta-section {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      color: white;
+      text-align: center;
+      padding: 5rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: rgba(212,162,78,0.1);
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute;
+      bottom: -150px; left: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.05);
+    }
+    .cta-section > * { position: relative; z-index: 2; }
+    .cta-section h2 {
+      font-size: 2.5rem; font-weight: 800;
+      letter-spacing: -1px; margin-bottom: 1rem;
+    }
+    .cta-section p {
+      font-size: 1.1rem; color: rgba(255,255,255,0.85);
+      max-width: 600px; margin: 0 auto 2rem;
+    }
+
+    /* ============ FOOTER ============ */
+    .footer {
+      background: #061a2e;
+      color: rgba(255,255,255,0.7);
+      padding: 4rem 2rem 2rem;
+      font-size: 0.85rem;
+    }
+    .footer-grid {
+      max-width: 1200px; margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+    .footer h4 {
+      color: white; font-size: 0.95rem;
+      font-weight: 700; margin-bottom: 1.2rem;
+      letter-spacing: 0.5px;
+    }
+    .footer p { line-height: 1.7; margin-bottom: 1rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+    .footer-links a { transition: color 0.2s; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-contact div {
+      display: flex; gap: 0.7rem; margin-bottom: 0.8rem;
+      align-items: flex-start;
+    }
+    .footer-contact i { color: var(--gold); margin-top: 3px; }
+    .footer-bottom {
+      max-width: 1200px; margin: 0 auto;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      font-size: 0.8rem;
+    }
+
+    /* ============ AUTH MODAL ============ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(11,44,79,0.7);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: white;
+      border-radius: 28px;
+      width: 100%;
+      max-width: 900px;
+      max-height: 95vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.3);
+      animation: modalIn 0.3s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(20px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(0,0,0,0.05);
+      border: none; cursor: pointer;
+      color: var(--navy); font-size: 1rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: 0.2s;
+      z-index: 10;
+    }
+    .modal-close:hover { background: rgba(0,0,0,0.1); }
+
+    .modal-header {
+      padding: 2rem 2rem 1rem;
+      text-align: center;
+    }
+    .modal-header h2 {
+      font-size: 1.5rem; font-weight: 800;
+      color: var(--navy); margin-bottom: 0.4rem;
+      letter-spacing: -0.5px;
+    }
+    .modal-header p {
+      color: var(--text-muted); font-size: 0.9rem;
+    }
+
+    /* Dashboard inside modal */
+    .dashboard-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 1.5rem;
+      padding: 1rem 2rem 2rem;
+    }
     .card {
-      background: white; border-radius: 28px; padding: 1.8rem 1.8rem 2rem;
-      box-shadow: 0 12px 30px rgba(0, 20, 40, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.6);
-      transition: all 0.2s; height: fit-content;
+      background: white;
+      border-radius: 22px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(11,44,79,0.06);
+      border: 1px solid var(--border);
+    }
+    .card-header {
+      display: flex; justify-content: space-between;
+      align-items: center; margin-bottom: 1.2rem;
+    }
+    .card-header h2 {
+      font-size: 1.05rem; font-weight: 700; color: var(--navy);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .card-header i { color: var(--blue); }
+
+    .badge {
+      background: #d9e9f9; color: var(--navy);
+      border-radius: 40px; padding: 0.2rem 0.7rem;
+      font-size: 0.7rem; font-weight: 700;
     }
 
-    .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
-    .card-header h2 { font-size: 1.3rem; font-weight: 600; color: #0b2c4f; display: flex; align-items: center; gap: 0.5rem; }
-    .card-header i { color: #2a6b9c; }
-
-    label { font-size: 0.85rem; font-weight: 500; color: #1e3e5c; display: block; margin-bottom: 0.3rem; }
-
+    label {
+      font-size: 0.8rem; font-weight: 600;
+      color: var(--navy); display: block; margin-bottom: 0.3rem;
+    }
     input, select {
-      width: 100%; padding: 0.75rem 1rem; border-radius: 14px;
-      border: 1.5px solid #dae5f0; background: #f9fcff;
-      font-size: 0.95rem; margin-bottom: 1rem; transition: 0.15s;
+      width: 100%; padding: 0.7rem 1rem;
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      background: #f9fcff; font-size: 0.9rem;
+      margin-bottom: 0.9rem; transition: 0.15s;
+      font-family: inherit;
     }
     input:focus, select:focus {
-      border-color: #2a6b9c; outline: none; background: white;
-      box-shadow: 0 0 0 4px rgba(42, 107, 156, 0.1);
+      border-color: var(--blue); outline: none;
+      background: white;
+      box-shadow: 0 0 0 4px rgba(42,107,156,0.1);
     }
 
     .btn {
-      background: #0b2c4f; color: white; padding: 0.85rem 1.6rem;
-      border-radius: 40px; border: none; font-weight: 600; font-size: 0.95rem;
-      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--navy); color: white;
+      padding: 0.75rem 1.4rem; border-radius: 40px;
+      border: none; font-weight: 600; font-size: 0.9rem;
+      display: inline-flex; align-items: center; gap: 0.5rem;
       cursor: pointer; transition: 0.15s;
-      box-shadow: 0 6px 14px rgba(11, 44, 79, 0.2);
+      box-shadow: 0 4px 12px rgba(11,44,79,0.15);
     }
-    .btn:hover:not(:disabled) { background: #154a73; transform: translateY(-1px); }
+    .btn:hover:not(:disabled) { background: var(--navy-light); transform: translateY(-1px); }
     .btn:disabled { opacity: 0.5; cursor: not-allowed; }
+    .btn-secondary {
+      background: white; color: var(--navy);
+      border: 1.5px solid var(--border); box-shadow: none;
+    }
+    .btn-secondary:hover:not(:disabled) { background: var(--sky); border-color: var(--blue); }
+    .btn-small { padding: 0.45rem 0.9rem; font-size: 0.75rem; }
 
-    .btn-secondary { background: white; color: #0b2c4f; border: 1.5px solid #cbdae8; box-shadow: none; }
-    .btn-secondary:hover:not(:disabled) { background: #f0f6fd; border-color: #2a6b9c; }
-    .btn-small { padding: 0.5rem 1rem; font-size: 0.8rem; }
-
-    .student-list { margin-top: 0.5rem; max-height: 420px; overflow-y: auto; padding-right: 4px; }
-
+    .student-list {
+      max-height: 340px; overflow-y: auto;
+      padding-right: 4px;
+    }
     .student-item {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0.9rem 1rem; background: #f5faff; border-radius: 18px;
-      margin-bottom: 0.5rem; border: 1px solid #e2edf9;
-      cursor: pointer; transition: 0.1s;
+      padding: 0.75rem 0.9rem; background: #f5faff;
+      border-radius: 14px; margin-bottom: 0.4rem;
+      border: 1px solid #e2edf9; cursor: pointer;
+      transition: 0.1s;
     }
-    .student-item.active { background: #e1effa; border-color: #2a6b9c; box-shadow: 0 4px 12px rgba(42, 107, 156, 0.1); }
-    .student-item i { color: #2a6b9c; width: 22px; font-size: 1rem; }
-    .student-name { font-weight: 500; color: #0b2c4f; flex: 1; margin-left: 0.8rem; }
-
-    .badge {
-      background: #d9e9f9; color: #0b2c4f; border-radius: 40px;
-      padding: 0.2rem 0.8rem; font-size: 0.7rem; font-weight: 600;
+    .student-item.active {
+      background: #e1effa; border-color: var(--blue);
+      box-shadow: 0 4px 12px rgba(42,107,156,0.1);
+    }
+    .student-item i { color: var(--blue); width: 20px; }
+    .student-name {
+      font-weight: 500; color: var(--navy);
+      flex: 1; margin-left: 0.7rem; font-size: 0.85rem;
     }
 
     .folder-view {
-      background: #f9fcff; border-radius: 20px; padding: 1.2rem 1.2rem 0.8rem;
-      margin-top: 1rem; border: 1px solid #d9e7f5;
+      background: #f9fcff; border-radius: 16px;
+      padding: 1rem; margin-top: 0.8rem;
+      border: 1px solid #d9e7f5;
     }
     .folder-view h3 {
-      font-size: 1rem; font-weight: 600; color: #1d4d72;
-      margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.9rem; font-weight: 700;
+      color: var(--navy); margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 0.4rem;
     }
-
     .doc-item {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 0.6rem 0.8rem; background: white; border-radius: 14px;
-      margin-bottom: 0.4rem; border: 1px solid #e6eff9; font-size: 0.85rem;
+      padding: 0.5rem 0.7rem; background: white;
+      border-radius: 10px; margin-bottom: 0.35rem;
+      border: 1px solid #e6eff9; font-size: 0.78rem;
     }
-    .doc-name { display: flex; align-items: center; gap: 0.6rem; color: #163a56; font-weight: 500; }
-    .doc-name i { color: #2a6b9c; width: 18px; }
-    .doc-actions i { color: #2a6b9c; margin-left: 0.6rem; cursor: pointer; opacity: 0.7; transition: 0.1s; }
-    .doc-actions i:hover { opacity: 1; color: #0b2c4f; }
+    .doc-name {
+      display: flex; align-items: center; gap: 0.5rem;
+      color: var(--navy); font-weight: 500;
+    }
+    .doc-name i { color: var(--blue); width: 16px; }
+    .doc-actions a { color: var(--blue); margin-left: 0.5rem; }
+    .doc-actions a:hover { color: var(--navy); }
 
-    .empty-message { color: #809ab0; font-style: italic; padding: 0.8rem; text-align: center; font-size: 0.9rem; }
+    .empty-message {
+      color: #809ab0; font-style: italic;
+      padding: 0.7rem; text-align: center; font-size: 0.82rem;
+    }
 
-    .upload-area { margin-top: 1.2rem; border-top: 1px dashed #bfd6eb; padding-top: 1.2rem; }
-    .upload-row { display: flex; gap: 0.7rem; align-items: center; flex-wrap: wrap; }
-    .upload-row select { flex: 1; margin-bottom: 0; }
+    .upload-area {
+      margin-top: 1rem; border-top: 1px dashed #bfd6eb;
+      padding-top: 1rem;
+    }
+    .upload-row {
+      display: flex; gap: 0.5rem;
+      align-items: center; flex-wrap: wrap;
+    }
+    .upload-row select { flex: 1; margin-bottom: 0; min-width: 120px; }
     .upload-row input[type="file"] {
-      flex: 2; padding: 0.5rem; background: white;
-      font-size: 0.8rem; margin-bottom: 0;
+      flex: 2; padding: 0.4rem; background: white;
+      font-size: 0.75rem; margin-bottom: 0;
+      border-radius: 10px; border: 1.5px solid var(--border);
     }
-    .upload-row button { margin-bottom: 0; padding: 0.7rem 1.4rem; }
+    .upload-row button { margin-bottom: 0; padding: 0.6rem 1.1rem; }
 
-    .account-card { margin-top: 1.5rem; background: #f0f7fe; border-radius: 22px; padding: 1.3rem 1.5rem; }
-    .applied-schools { display: flex; flex-direction: column; gap: 0.5rem; margin-top: 0.8rem; }
-    .school-row {
-      background: white; border-radius: 14px; padding: 0.6rem 1rem;
-      font-size: 0.9rem; color: #0b2c4f; display: flex;
-      align-items: center; gap: 0.8rem; border: 1px solid #d4e4f2;
+    .account-card {
+      margin-top: 1rem; background: var(--sky);
+      border-radius: 16px; padding: 1rem 1.2rem;
     }
-    .school-row i { color: #2a6b9c; }
+    .applied-schools {
+      display: flex; flex-direction: column; gap: 0.4rem; margin-top: 0.6rem;
+    }
+    .school-row {
+      background: white; border-radius: 12px;
+      padding: 0.5rem 0.9rem; font-size: 0.8rem;
+      color: var(--navy); display: flex;
+      align-items: center; gap: 0.6rem;
+      border: 1px solid #d4e4f2;
+    }
 
     .hidden { display: none !important; }
-    .text-muted { color: #5e7e9c; font-size: 0.85rem; }
+    .text-muted { color: var(--text-muted); font-size: 0.8rem; }
     .flex-between { display: flex; justify-content: space-between; align-items: center; }
     .mt-1 { margin-top: 0.5rem; }
     .mt-2 { margin-top: 1rem; }
 
     .toast {
       position: fixed; bottom: 30px; right: 30px;
-      background: #0b2c4f; color: white; padding: 1rem 1.5rem;
-      border-radius: 14px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      background: var(--navy); color: white;
+      padding: 0.9rem 1.4rem; border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
       opacity: 0; transform: translateY(20px);
       transition: all 0.3s; z-index: 9999;
+      font-size: 0.9rem; max-width: 340px;
     }
     .toast.show { opacity: 1; transform: translateY(0); }
     .toast.error { background: #b91c1c; }
     .toast.success { background: #15803d; }
 
     .spinner {
-      display: inline-block; width: 14px; height: 14px;
+      display: inline-block; width: 12px; height: 12px;
       border: 2px solid rgba(255,255,255,0.3);
       border-top-color: white; border-radius: 50%;
       animation: spin 0.6s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 900px) {
+      .hero-content { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2.4rem; }
+      .hero-stats { display: none; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .dashboard-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .mobile-toggle { display: block; }
+      .section-header h2 { font-size: 1.9rem; }
+      .cta-section h2 { font-size: 1.9rem; }
+      .topbar-info { display: none; }
+    }
+    @media (max-width: 500px) {
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 2rem; }
+      .hero { min-height: 70vh; padding: 2rem 1.2rem; }
+      .section { padding: 3rem 1.2rem; }
+      .navbar { padding: 0.8rem 1.2rem; }
+    }
   </style>
 </head>
 <body>
-<div class="app-container">
-  <div class="brand">
-    <div class="logo-placeholder">R</div>
-    <h1>Rhago Consulting Services <span>· Study in China</span></h1>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="topbar-info">
+    <span><i class="fas fa-phone"></i> +86 123 4567 890</span>
+    <span><i class="fas fa-envelope"></i> hello@rhagoconsulting.com</span>
+    <span><i class="fas fa-map-marker-alt"></i> Beijing · Lagos · Nairobi</span>
   </div>
+  <div class="topbar-social">
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-whatsapp"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+  </div>
+</div>
 
-  <div class="dashboard-grid">
-    <!-- LEFT: Student Account -->
-    <div class="card">
-      <div class="card-header">
-        <h2><i class="fas fa-user-plus"></i> Student Account</h2>
-        <span class="badge" id="userBadge">not logged in</span>
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-brand">
+    <div class="logo">R</div>
+    <div class="brand-text">
+      <h2>Rhago Consulting</h2>
+      <small>Study in China</small>
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#universities">Universities</a></li>
+    <li><a href="#faq">FAQ</a></li>
+  </ul>
+  <button class="nav-cta" onclick="openModal()">
+    <i class="fas fa-user-circle"></i> Student Portal
+  </button>
+  <button class="mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('mobile-open')">
+    <i class="fas fa-bars"></i>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div>
+      <div class="hero-badge">
+        <i class="fas fa-star"></i> Trusted by students from 20+ countries
       </div>
-
-      <!-- Auth Section -->
-      <div id="authSection">
-        <label>Full name</label>
-        <input type="text" id="regName" placeholder="e.g. John Doe">
-        <label>Email</label>
-        <input type="email" id="regEmail" placeholder="student@email.com">
-        <div class="flex-between mt-1">
-          <button class="btn" id="createAccountBtn">
-            <i class="fas fa-folder-open"></i> Create account & folder
-          </button>
-        </div>
-        <p class="text-muted mt-1" style="font-size:0.8rem;">Your folder will appear in the admin dashboard.</p>
+      <h1>
+        Your Journey to
+        <span>Study in China</span>
+        Starts Here
+      </h1>
+      <p>
+        Rhago Consulting Services guides you from application to admission at China's top universities. Bachelor's, Master's, PhD, and Chinese language programs — we handle the paperwork so you can focus on your future.
+      </p>
+      <div class="hero-ctas">
+        <button class="btn-primary" onclick="openModal()">
+          <i class="fas fa-rocket"></i> Start Your Application
+        </button>
+        <a href="#how" class="btn-ghost">
+          <i class="fas fa-play-circle"></i> How It Works
+        </a>
       </div>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num">500+</div>
+        <div class="label">Students Placed</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">50+</div>
+        <div class="label">Partner Universities</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">98%</div>
+        <div class="label">Visa Success Rate</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">8</div>
+        <div class="label">Years Experience</div>
+      </div>
+    </div>
+  </div>
+</section>
 
-      <!-- Student Panel -->
-      <div id="studentPanel" class="hidden">
-        <div class="flex-between">
-          <h3 style="color:#0b2c4f;">
-            <i class="fas fa-id-card"></i>
-            <span id="studentNameDisplay">Student</span>
-          </h3>
-          <button class="btn btn-secondary btn-small" id="switchUserBtn">
-            <i class="fas fa-rotate"></i> Switch
-          </button>
-        </div>
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section-header">
+    <div class="section-tag">What We Do</div>
+    <h2>Everything You Need to Get Admitted</h2>
+    <p>From choosing the right university to landing in China — we're with you at every step.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-university"></i></div>
+      <h3>University Selection</h3>
+      <p>We match you with the best-fit Chinese universities based on your academic background, budget, and career goals.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-file-signature"></i></div>
+      <h3>Application Handling</h3>
+      <p>Complete application management — from document collection to submission and follow-up with the universities.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-passport"></i></div>
+      <h3>Visa Assistance</h3>
+      <p>Step-by-step guidance for your student visa (X1/X2) application, including document prep and interview coaching.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-language"></i></div>
+      <h3>Scholarship Guidance</h3>
+      <p>We help you identify and apply for CSC, Confucius Institute, and university-specific scholarships.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-home"></i></div>
+      <h3>Accommodation</h3>
+      <p>Assistance with on-campus dorms or off-campus housing before you even arrive in China.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon"><i class="fas fa-plane-departure"></i></div>
+      <h3>Pre-Departure Support</h3>
+      <p>Airport pickup, orientation, SIM cards, bank accounts, and everything you need to settle in fast.</p>
+    </div>
+  </div>
+</section>
 
-        <div class="mt-2">
-          <label>Applying for</label>
-          <select id="degreeSelect">
-            <option value="bachelors">Bachelor's degree</option>
-            <option value="masters">Master's degree</option>
-            <option value="phd">PhD</option>
-            <option value="chinese1year">1-year Chinese language</option>
-            <option value="chinese6months">6-month Chinese language</option>
-          </select>
-        </div>
+<!-- HOW IT WORKS -->
+<section class="section how-section" id="how">
+  <div class="section-header">
+    <div class="section-tag">Simple Process</div>
+    <h2>How It Works</h2>
+    <p>Four simple steps from your first click to your first day on campus.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <h3>Create Account</h3>
+      <p>Sign up on our portal and tell us about your educational background and goals.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <h3>Upload Documents</h3>
+      <p>Securely upload your passport, transcripts, certificates, and other required documents.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <h3>We Apply For You</h3>
+      <p>Our team applies to multiple universities on your behalf and tracks every application.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <h3>Get Admitted</h3>
+      <p>Receive your admission letter, apply for your visa, and prepare for your journey to China.</p>
+    </div>
+  </div>
+</section>
 
-        <div class="mt-1" style="background:#e8f2fc; border-radius:16px; padding:0.9rem 1rem;">
-          <p style="font-size:0.8rem; font-weight:600; color:#0b2c4f; margin-bottom:0.4rem;">
-            <i class="fas fa-list-check"></i> Required documents:
-          </p>
-          <div id="requiredDocsList" style="font-size:0.75rem; color:#2a4d6e; display:flex; flex-wrap:wrap; gap:0.3rem;"></div>
-        </div>
-
-        <div class="upload-area">
-          <h4 style="font-size:0.9rem; margin-bottom:0.6rem;">
-            <i class="fas fa-cloud-upload-alt"></i> Upload documents
-          </h4>
-          <div class="upload-row">
-            <select id="docTypeSelect"></select>
-            <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.mp4">
-            <button class="btn btn-small" id="uploadDocBtn">
-              <i class="fas fa-upload"></i> Upload
-            </button>
-          </div>
-          <p class="text-muted" style="font-size:0.7rem; margin-top:0.4rem;">
-            Accepted: PDF, JPG, PNG, DOC, MP4 (max 10MB)
-          </p>
-        </div>
-
-        <div class="account-card">
-          <h4 style="font-size:0.9rem;">
-            <i class="fas fa-building-columns"></i> Schools applied for you
-          </h4>
-          <div class="applied-schools">
-            <div class="school-row">
-              <i class="fas fa-check-circle" style="color:#1e7a4b;"></i>
-              Tsinghua University – Master's in CS
-            </div>
-            <div class="school-row">
-              <i class="fas fa-clock" style="color:#b37b1a;"></i>
-              Peking University – Language program (pending)
-            </div>
-            <div class="school-row">
-              <i class="fas fa-check-circle" style="color:#1e7a4b;"></i>
-              Fudan University – PhD in Economics
-            </div>
-          </div>
-          <p class="text-muted mt-1" style="font-size:0.7rem;">
-            Rhago team updates this list as applications progress.
-          </p>
+<!-- UNIVERSITIES -->
+<section class="section" id="universities">
+  <div class="section-header">
+    <div class="section-tag">Partner Institutions</div>
+    <h2>Top Chinese Universities</h2>
+    <p>We work directly with some of China's most prestigious institutions.</p>
+  </div>
+  <div class="uni-grid">
+    <div class="uni-card">
+      <div class="uni-image" style="background-image: url('https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?w=800&q=80');">
+        <div class="uni-city"><i class="fas fa-map-marker-alt"></i> Beijing</div>
+      </div>
+      <div class="uni-info">
+        <h3>Tsinghua University</h3>
+        <p>China's #1 technical university. Famous for engineering, computer science, and business programs.</p>
+        <div class="uni-tags">
+          <span class="uni-tag">Engineering</span>
+          <span class="uni-tag">CS</span>
+          <span class="uni-tag">MBA</span>
         </div>
       </div>
     </div>
-
-    <!-- RIGHT: Admin Dashboard -->
-    <div class="card">
-      <div class="card-header">
-        <h2><i class="fas fa-user-tie"></i> Admin Dashboard · Student Folders</h2>
-        <span class="badge" id="adminBadge">0 students</span>
+    <div class="uni-card">
+      <div class="uni-image" style="background-image: url('https://images.unsplash.com/photo-1584969787353-7c8e5e1d0e2b?w=800&q=80');">
+        <div class="uni-city"><i class="fas fa-map-marker-alt"></i> Beijing</div>
       </div>
-
-      <div class="student-list" id="studentListContainer">
-        <div class="empty-message">Loading students…</div>
-      </div>
-
-      <div class="folder-view" id="folderView">
-        <h3>
-          <i class="fas fa-folder-open"></i>
-          <span id="selectedStudentName">Select a student</span>
-        </h3>
-        <div id="documentList">
-          <div class="empty-message">No documents uploaded yet.</div>
+      <div class="uni-info">
+        <h3>Peking University</h3>
+        <p>China's oldest modern university. Renowned for humanities, medicine, and social sciences.</p>
+        <div class="uni-tags">
+          <span class="uni-tag">Humanities</span>
+          <span class="uni-tag">Medicine</span>
+          <span class="uni-tag">Law</span>
         </div>
-        <div class="flex-between mt-2" style="justify-content:flex-end;">
-          <button class="btn btn-secondary btn-small" id="downloadAllBtn" disabled>
-            <i class="fas fa-download"></i> Download all
+      </div>
+    </div>
+    <div class="uni-card">
+      <div class="uni-image" style="background-image: url('https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&q=80');">
+        <div class="uni-city"><i class="fas fa-map-marker-alt"></i> Shanghai</div>
+      </div>
+      <div class="uni-info">
+        <h3>Fudan University</h3>
+        <p>Top-ranked comprehensive university in Shanghai. Strong in economics, business, and journalism.</p>
+        <div class="uni-tags">
+          <span class="uni-tag">Economics</span>
+          <span class="uni-tag">Business</span>
+          <span class="uni-tag">Journalism</span>
+        </div>
+      </div>
+    </div>
+    <div class="uni-card">
+      <div class="uni-image" style="background-image: url('https://images.unsplash.com/photo-1519677100203-a0e668c92439?w=800&q=80');">
+        <div class="uni-city"><i class="fas fa-map-marker-alt"></i> Shanghai</div>
+      </div>
+      <div class="uni-info">
+        <h3>Shanghai Jiao Tong</h3>
+        <p>Elite research university. Excellent for engineering, medicine, and international MBA programs.</p>
+        <div class="uni-tags">
+          <span class="uni-tag">Engineering</span>
+          <span class="uni-tag">Medicine</span>
+          <span class="uni-tag">Research</span>
+        </div>
+      </div>
+    </div>
+    <div class="uni-card">
+      <div class="uni-image" style="background-image: url('https://images.unsplash.com/photo-1584646098378-0874589d76b1?w=800&q=80');">
+        <div class="uni-city"><i class="fas fa-map-marker-alt"></i> Hangzhou</div>
+      </div>
+      <div class="uni-info">
+        <h3>Zhejiang University</h3>
+        <p>One of China's oldest and most prestigious. Known for technology, agriculture, and medicine.</p>
+        <div class="uni-tags">
+          <span class="uni-tag">Technology</span>
+          <span class="uni-tag">Agriculture</span>
+          <span class="uni-tag">Medicine</span>
+        </div>
+      </div>
+    </div>
+    <div class="uni-card">
+      <div class="uni-image" style="background-image: url('https://images.unsplash.com/photo-1523731407965-2430cd12f5e4?w=800&q=80');">
+        <div class="uni-city"><i class="fas fa-map-marker-alt"></i> Nanjing</div>
+      </div>
+      <div class="uni-info">
+        <h3>Nanjing University</h3>
+        <p>Historical university with outstanding programs in science, literature, and international relations.</p>
+        <div class="uni-tags">
+          <span class="uni-tag">Science</span>
+          <span class="uni-tag">Literature</span>
+          <span class="uni-tag">IR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section testimonials-section">
+  <div class="section-header">
+    <div class="section-tag">Success Stories</div>
+    <h2>What Our Students Say</h2>
+    <p>Real students, real results. Here's what they think about working with Rhago.</p>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">
+        Rhago made the whole process so easy. I got admitted to Tsinghua for my Master's in Computer Science, and they handled every document. I just had to show up and study.
+      </p>
+      <div class="testi-author">
+        <div class="testi-avatar">AO</div>
+        <div>
+          <div class="testi-name">Adaeze Okafor</div>
+          <div class="testi-role">MSc Computer Science, Tsinghua</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">
+        I was nervous about moving to China, but the team guided me through everything — visa, accommodation, even airport pickup. Best decision I ever made.
+      </p>
+      <div class="testi-author">
+        <div class="testi-avatar">MK</div>
+        <div>
+          <div class="testi-name">Michael Kamau</div>
+          <div class="testi-role">1-Year Chinese Language Program, Fudan</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-quote">"</div>
+      <p class="testi-text">
+        Rhago helped me secure a full CSC scholarship for my PhD. Their team knew exactly which universities to target and how to present my research proposal.
+      </p>
+      <div class="testi-author">
+        <div class="testi-avatar">PS</div>
+        <div>
+          <div class="testi-name">Priya Sharma</div>
+          <div class="testi-role">PhD Economics, Peking University</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="section-header">
+    <div class="section-tag">Questions</div>
+    <h2>Frequently Asked Questions</h2>
+    <p>Everything you need to know before starting your application.</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>How long does the application process take?</span>
+        <i class="fas fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        Typically 4-8 weeks from submitting your documents to receiving an admission letter. Some universities respond faster, especially for language programs. We track every application and keep you updated.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What documents do I need to provide?</span>
+        <i class="fas fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        For degree programs: passport biodata page, certificates, transcripts, bank statement, passport photo, non-criminal record, CV, physical examination form, 2 recommendation letters, English proficiency proof, research proposal, and a short intro video. For Chinese language programs, the list is shorter — just the essentials.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Do you help with scholarships?</span>
+        <i class="fas fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        Yes. We help you identify and apply for the Chinese Government Scholarship (CSC), Confucius Institute Scholarship, and university-specific scholarships. Our team guides you through the essays and documentation.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Is my personal information secure?</span>
+        <i class="fas fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        Absolutely. All documents are stored securely and encrypted. Only you and our application team can access your file. We never share your information with third parties.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What if I don't get admitted?</span>
+        <i class="fas fa-plus"></i>
+      </div>
+      <div class="faq-answer">
+        We apply to multiple universities on your behalf to maximize your chances. In the rare case that no admission is received, we work with you on a revised strategy for the next intake at no additional cost.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA SECTION -->
+<section class="cta-section">
+  <h2>Ready to Start Your Journey?</h2>
+  <p>Join hundreds of students who have made their dream of studying in China a reality with Rhago Consulting Services.</p>
+  <button class="btn-primary" onclick="openModal()">
+    <i class="fas fa-graduation-cap"></i> Apply Now — It's Free
+  </button>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-grid">
+    <div>
+      <div style="display:flex; align-items:center; gap:0.7rem; margin-bottom:1rem;">
+        <div class="logo" style="width:40px; height:40px; font-size:1.1rem;">R</div>
+        <div>
+          <div style="color:white; font-weight:700; font-size:1rem;">Rhago Consulting</div>
+          <div style="font-size:0.7rem; color:rgba(255,255,255,0.5); text-transform:uppercase; letter-spacing:1px;">Study in China</div>
+        </div>
+      </div>
+      <p>Empowering students to access world-class education in China. Trusted partner for admissions, visas, and everything in between.</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#how">How It Works</a></li>
+        <li><a href="#universities">Universities</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Programs</h4>
+      <ul class="footer-links">
+        <li><a href="#faq">Bachelor's Degree</a></li>
+        <li><a href="#faq">Master's Degree</a></li>
+        <li><a href="#faq">PhD</a></li>
+        <li><a href="#faq">1-Year Chinese</a></li>
+        <li><a href="#faq">6-Month Chinese</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <div class="footer-contact">
+        <div><i class="fas fa-map-marker-alt"></i><span>Beijing · Lagos · Nairobi</span></div>
+        <div><i class="fas fa-phone"></i><span>+86 123 4567 890</span></div>
+        <div><i class="fas fa-envelope"></i><span>hello@rhagoconsulting.com</span></div>
+        <div><i class="fas fa-clock"></i><span>Mon – Sat, 9am – 6pm</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Rhago Consulting Services. All rights reserved.</span>
+    <span>Privacy Policy · Terms of Service</span>
+  </div>
+</footer>
+
+<!-- ==================== AUTH MODAL (Student Portal) ==================== -->
+<div class="modal-overlay" id="portalModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">
+      <i class="fas fa-times"></i>
+    </button>
+    <div class="modal-header">
+      <h2><i class="fas fa-user-circle" style="color: var(--blue);"></i> Student Portal</h2>
+      <p>Create your account or access your dashboard</p>
+    </div>
+
+    <div class="dashboard-grid">
+      <!-- LEFT: Account -->
+      <div class="card">
+        <div class="card-header">
+          <h2><i class="fas fa-user-plus"></i> Your Account</h2>
+          <span class="badge" id="userBadge">not logged in</span>
+        </div>
+
+        <div id="authSection">
+          <label>Full name</label>
+          <input type="text" id="regName" placeholder="e.g. John Doe">
+          <label>Email</label>
+          <input type="email" id="regEmail" placeholder="student@email.com">
+          <button class="btn" id="createAccountBtn" style="width:100%; justify-content:center;">
+            <i class="fas fa-folder-open"></i> Create Account
           </button>
+          <p class="text-muted mt-1">Your folder will appear in the admin dashboard.</p>
+        </div>
+
+        <div id="studentPanel" class="hidden">
+          <div class="flex-between">
+            <h3 style="color:var(--navy); font-size:0.95rem;">
+              <i class="fas fa-id-card"></i>
+              <span id="studentNameDisplay">Student</span>
+            </h3>
+            <button class="btn btn-secondary btn-small" id="switchUserBtn">
+              <i class="fas fa-rotate"></i> Switch
+            </button>
+          </div>
+
+          <div class="mt-2">
+            <label>Applying for</label>
+            <select id="degreeSelect">
+              <option value="bachelors">Bachelor's degree</option>
+              <option value="masters">Master's degree</option>
+              <option value="phd">PhD</option>
+              <option value="chinese1year">1-year Chinese language</option>
+              <option value="chinese6months">6-month Chinese language</option>
+            </select>
+          </div>
+
+          <div class="mt-1" style="background:var(--sky); border-radius:14px; padding:0.8rem;">
+            <p style="font-size:0.75rem; font-weight:600; color:var(--navy); margin-bottom:0.4rem;">
+              <i class="fas fa-list-check"></i> Required documents:
+            </p>
+            <div id="requiredDocsList" style="font-size:0.7rem; color:var(--blue); display:flex; flex-wrap:wrap; gap:0.3rem;"></div>
+          </div>
+
+          <div class="upload-area">
+            <h4 style="font-size:0.85rem; margin-bottom:0.5rem;">
+              <i class="fas fa-cloud-upload-alt"></i> Upload documents
+            </h4>
+            <div class="upload-row">
+              <select id="docTypeSelect"></select>
+              <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx,.mp4">
+              <button class="btn btn-small" id="uploadDocBtn">
+                <i class="fas fa-upload"></i> Upload
+              </button>
+            </div>
+            <p class="text-muted" style="font-size:0.7rem; margin-top:0.4rem;">
+              PDF, JPG, PNG, DOC, MP4 · max 10MB
+            </p>
+          </div>
+
+          <div class="account-card">
+            <h4 style="font-size:0.85rem;">
+              <i class="fas fa-building-columns"></i> Schools applied for you
+            </h4>
+            <div class="applied-schools">
+              <div class="school-row">
+                <i class="fas fa-check-circle" style="color:#1e7a4b;"></i>
+                Tsinghua University – Master's in CS
+              </div>
+              <div class="school-row">
+                <i class="fas fa-clock" style="color:#b37b1a;"></i>
+                Peking University – Language program
+              </div>
+              <div class="school-row">
+                <i class="fas fa-check-circle" style="color:#1e7a4b;"></i>
+                Fudan University – PhD in Economics
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Admin -->
+      <div class="card">
+        <div class="card-header">
+          <h2><i class="fas fa-user-tie"></i> Admin Folders</h2>
+          <span class="badge" id="adminBadge">0 students</span>
+        </div>
+
+        <div class="student-list" id="studentListContainer">
+          <div class="empty-message">Loading students…</div>
+        </div>
+
+        <div class="folder-view" id="folderView">
+          <h3>
+            <i class="fas fa-folder-open"></i>
+            <span id="selectedStudentName">Select a student</span>
+          </h3>
+          <div id="documentList">
+            <div class="empty-message">No documents uploaded yet.</div>
+          </div>
+          <div class="flex-between mt-2" style="justify-content:flex-end;">
+            <button class="btn btn-secondary btn-small" id="downloadAllBtn" disabled>
+              <i class="fas fa-download"></i> Download all
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -278,25 +1333,12 @@
 <div id="toast" class="toast"></div>
 
 <script>
-  // ============================================================
-  // CONFIGURATION
-  // ============================================================
-  // The API base URL. In production (Vercel), this is empty
-  // because the API is at the same domain.
-  // If testing locally with `vercel dev`, it's also empty.
   const API_BASE = '';
-
-  // ============================================================
-  // STATE
-  // ============================================================
-  let students = [];              // loaded from backend
-  let currentUserId = null;       // logged-in student ID (or null)
+  let students = [];
+  let currentUserId = null;
   let selectedStudentIdForAdmin = null;
-  let currentStudentDocs = [];    // documents of logged-in student
+  let currentStudentDocs = [];
 
-  // ============================================================
-  // DOM REFERENCES
-  // ============================================================
   const $ = id => document.getElementById(id);
   const authSection = $('authSection');
   const studentPanel = $('studentPanel');
@@ -315,9 +1357,6 @@
   const fileInput = $('fileInput');
   const uploadDocBtn = $('uploadDocBtn');
 
-  // ============================================================
-  // HELPERS
-  // ============================================================
   function escapeHtml(text) {
     if (!text) return '';
     return String(text).replace(/[&<>"']/g, m => ({
@@ -343,33 +1382,66 @@
     }
   }
 
-  // Fetch wrapper with error handling
   async function apiCall(endpoint, options = {}) {
-    try {
-      const response = await fetch(API_BASE + endpoint, options);
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) {
-        throw new Error(data.error || `Request failed (${response.status})`);
-      }
-      return data;
-    } catch (err) {
-      console.error('API error:', err);
-      throw err;
-    }
+    const response = await fetch(API_BASE + endpoint, options);
+    const data = await response.json().catch(() => ({}));
+    if (!response.ok) throw new Error(data.error || `Request failed (${response.status})`);
+    return data;
   }
 
-  // ============================================================
-  // DEGREE / DOCUMENT REQUIREMENTS
-  // ============================================================
+  // ============ MODAL ============
+  function openModal() {
+    $('portalModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal() {
+    $('portalModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  // Close modal on overlay click
+  $('portalModal').addEventListener('click', (e) => {
+    if (e.target.id === 'portalModal') closeModal();
+  });
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // ============ FAQ ============
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  // ============ SMOOTH SCROLL FOR NAV LINKS ============
+  document.querySelectorAll('.nav-links a, .footer-links a').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href.startsWith('#')) {
+        e.preventDefault();
+        const target = document.querySelector(href);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          // Update active state
+          document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+          if (link.classList.contains('nav-link')) link.classList.add('active');
+        }
+      }
+    });
+  });
+
+  // ============ DEGREE / DOCUMENTS ============
   function getRequiredDocsForDegree(degree) {
     const commonDocs = [
       'Passport Biodata (JPEG)', 'Certificates', 'Academic Transcripts',
       'Bank Statement', 'Passport Size Photograph', 'Non-Criminal Certificate',
       'CV/Resume', 'Physical Examination'
     ];
-    if (degree === 'chinese1year' || degree === 'chinese6months') {
-      return commonDocs;
-    }
+    if (degree === 'chinese1year' || degree === 'chinese6months') return commonDocs;
     return [...commonDocs, 'Recommendation Letter', 'English Language Proficiency',
             'Research Proposal', 'Self Introductory Video'];
   }
@@ -388,26 +1460,19 @@
       .join(' ');
   }
 
-  // ============================================================
-  // LOAD STUDENTS FROM BACKEND
-  // ============================================================
+  // ============ LOAD STUDENTS ============
   async function loadStudents() {
     try {
       students = await apiCall('/api/students');
       renderAdminStudentList();
     } catch (err) {
-      console.error('Failed to load students:', err);
       studentListContainer.innerHTML = `
         <div class="empty-message">
-          ⚠️ Could not load students. Check your connection.
-          <br><small>${escapeHtml(err.message)}</small>
+          ⚠️ Could not load students.<br><small>${escapeHtml(err.message)}</small>
         </div>`;
     }
   }
 
-  // ============================================================
-  // LOAD DOCUMENTS FOR SELECTED STUDENT (Admin)
-  // ============================================================
   async function loadDocumentsForAdmin(studentId) {
     documentList.innerHTML = `<div class="empty-message">Loading documents…</div>`;
     try {
@@ -418,14 +1483,10 @@
     }
   }
 
-  // ============================================================
-  // RENDER: ADMIN STUDENT LIST
-  // ============================================================
   function renderAdminStudentList() {
     adminBadge.textContent = `${students.length} student${students.length !== 1 ? 's' : ''}`;
-
     if (students.length === 0) {
-      studentListContainer.innerHTML = `<div class="empty-message">No students yet. Create one from the left.</div>`;
+      studentListContainer.innerHTML = `<div class="empty-message">No students yet.</div>`;
       selectedStudentName.textContent = 'No student selected';
       documentList.innerHTML = `<div class="empty-message">—</div>`;
       downloadAllBtn.disabled = true;
@@ -443,16 +1504,11 @@
       `;
       div.addEventListener('click', () => selectStudentForAdmin(student));
       studentListContainer.appendChild(div);
-
-      // Update doc count in background
       loadDocCountForAdmin(student.id);
     });
 
-    // Auto-select first student if none selected
     if (!selectedStudentIdForAdmin || !students.find(s => s.id === selectedStudentIdForAdmin)) {
-      if (students.length > 0) {
-        selectStudentForAdmin(students[0]);
-      }
+      if (students.length > 0) selectStudentForAdmin(students[0]);
     }
   }
 
@@ -461,49 +1517,37 @@
       const docs = await apiCall(`/api/documents?studentId=${studentId}`);
       const badge = document.querySelector(`[data-doc-count="${studentId}"]`);
       if (badge) badge.textContent = `${docs.length} doc${docs.length !== 1 ? 's' : ''}`;
-    } catch (err) {
-      // ignore
-    }
+    } catch (err) {}
   }
 
   function selectStudentForAdmin(student) {
     selectedStudentIdForAdmin = student.id;
-    // Refresh active state
     document.querySelectorAll('.student-item').forEach(el => el.classList.remove('active'));
     const items = studentListContainer.querySelectorAll('.student-item');
     const idx = students.findIndex(s => s.id === student.id);
     if (items[idx]) items[idx].classList.add('active');
-
     selectedStudentName.textContent = `${student.name} · folder`;
     loadDocumentsForAdmin(student.id);
   }
 
-  // ============================================================
-  // RENDER: ADMIN DOCUMENTS
-  // ============================================================
   function renderAdminDocuments(docs) {
     if (!docs || docs.length === 0) {
       documentList.innerHTML = `<div class="empty-message">No documents uploaded yet.</div>`;
       downloadAllBtn.disabled = true;
       return;
     }
-
     downloadAllBtn.disabled = false;
     documentList.innerHTML = '';
-
     docs.forEach(doc => {
       const div = document.createElement('div');
       div.className = 'doc-item';
       div.innerHTML = `
         <div class="doc-name">
           <i class="fas fa-file-pdf"></i>
-          <span>
-            ${escapeHtml(doc.file_name)}
-            <span style="color:#6b8aa8; font-size:0.7rem;">(${escapeHtml(doc.document_type)})</span>
-          </span>
+          <span>${escapeHtml(doc.file_name)} <span style="color:#6b8aa8; font-size:0.68rem;">(${escapeHtml(doc.document_type)})</span></span>
         </div>
         <div class="doc-actions">
-          <a href="${doc.file_url}" target="_blank" download="${escapeHtml(doc.file_name)}" style="color:#2a6b9c; text-decoration:none;">
+          <a href="${doc.file_url}" target="_blank" download="${escapeHtml(doc.file_name)}">
             <i class="fas fa-download" title="Download"></i>
           </a>
         </div>
@@ -512,9 +1556,6 @@
     });
   }
 
-  // ============================================================
-  // RENDER: STUDENT UI (Left panel)
-  // ============================================================
   function updateStudentUI() {
     const loggedIn = students.find(s => s.id === currentUserId);
     if (!loggedIn) {
@@ -532,40 +1573,29 @@
     loadStudentOwnDocuments(loggedIn.id);
   }
 
-  // Load the logged-in student's own documents (for their view — just count)
   async function loadStudentOwnDocuments(studentId) {
-    try {
-      currentStudentDocs = await apiCall(`/api/documents?studentId=${studentId}`);
-    } catch (err) {
-      currentStudentDocs = [];
-    }
+    try { currentStudentDocs = await apiCall(`/api/documents?studentId=${studentId}`); }
+    catch (err) { currentStudentDocs = []; }
   }
 
-  // ============================================================
-  // CREATE ACCOUNT
-  // ============================================================
   createAccountBtn.addEventListener('click', async () => {
     const name = $('regName').value.trim();
     const email = $('regEmail').value.trim();
-
     if (!name) { showToast('Please enter your full name', 'error'); return; }
     if (!email || !email.includes('@')) { showToast('Please enter a valid email', 'error'); return; }
 
     const originalText = createAccountBtn.innerHTML;
     setLoading(createAccountBtn, true);
-
     try {
       const newStudent = await apiCall('/api/students', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, degree: 'bachelors' })
       });
-
       currentUserId = newStudent.id;
       selectedStudentIdForAdmin = newStudent.id;
       $('regName').value = '';
       $('regEmail').value = '';
-
       await loadStudents();
       updateStudentUI();
       showToast(`Account created for ${newStudent.name}`, 'success');
@@ -576,55 +1606,31 @@
     }
   });
 
-  // ============================================================
-  // SWITCH USER (Logout)
-  // ============================================================
   switchUserBtn.addEventListener('click', () => {
     currentUserId = null;
     updateStudentUI();
     showToast('Logged out', 'success');
   });
 
-  // ============================================================
-  // DEGREE CHANGE
-  // ============================================================
-  degreeSelect.addEventListener('change', async (e) => {
+  degreeSelect.addEventListener('change', (e) => {
     const degree = e.target.value;
     updateDocTypeOptions(degree);
-
     if (currentUserId) {
-      // Note: we don't have a PATCH endpoint yet, so we keep this client-side.
-      // When you add a PATCH /api/students endpoint, save here.
       const student = students.find(s => s.id === currentUserId);
       if (student) student.degree = degree;
     }
   });
 
-  // ============================================================
-  // UPLOAD DOCUMENT
-  // ============================================================
   uploadDocBtn.addEventListener('click', async () => {
-    if (!currentUserId) {
-      showToast('Please create an account first', 'error');
-      return;
-    }
-
+    if (!currentUserId) { showToast('Please create an account first', 'error'); return; }
     const file = fileInput.files[0];
-    if (!file) {
-      showToast('Please choose a file first', 'error');
-      return;
-    }
-    if (file.size > 10 * 1024 * 1024) {
-      showToast('File too large (max 10MB)', 'error');
-      return;
-    }
+    if (!file) { showToast('Please choose a file first', 'error'); return; }
+    if (file.size > 10 * 1024 * 1024) { showToast('File too large (max 10MB)', 'error'); return; }
 
     const docType = docTypeSelect.value;
     const originalText = uploadDocBtn.innerHTML;
     setLoading(uploadDocBtn, true);
-
     try {
-      // Send the raw file to the API with metadata in the URL and headers
       const response = await fetch(
         `${API_BASE}/api/upload?studentId=${currentUserId}&documentType=${encodeURIComponent(docType)}`,
         {
@@ -636,17 +1642,11 @@
           body: file
         }
       );
-
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'Upload failed');
-
       fileInput.value = '';
       showToast(`Uploaded: ${file.name}`, 'success');
-
-      // Refresh admin view if this student is selected
-      if (selectedStudentIdForAdmin === currentUserId) {
-        loadDocumentsForAdmin(currentUserId);
-      }
+      if (selectedStudentIdForAdmin === currentUserId) loadDocumentsForAdmin(currentUserId);
       loadDocCountForAdmin(currentUserId);
       loadStudentOwnDocuments(currentUserId);
     } catch (err) {
@@ -656,16 +1656,9 @@
     }
   });
 
-  // ============================================================
-  // DOWNLOAD ALL (Admin)
-  // ============================================================
   downloadAllBtn.addEventListener('click', () => {
     const links = documentList.querySelectorAll('a[download]');
-    if (links.length === 0) {
-      showToast('No documents to download', 'error');
-      return;
-    }
-    // Trigger each download
+    if (links.length === 0) { showToast('No documents to download', 'error'); return; }
     links.forEach((link, i) => {
       setTimeout(() => {
         const a = document.createElement('a');
@@ -680,13 +1673,8 @@
     showToast(`Downloading ${links.length} files…`, 'success');
   });
 
-  // ============================================================
-  // INITIAL LOAD
-  // ============================================================
   updateDocTypeOptions('bachelors');
   loadStudents();
-
-  // Refresh student list every 30 seconds (so admin sees new signups)
   setInterval(loadStudents, 30000);
 </script>
 </body>
